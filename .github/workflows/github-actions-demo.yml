@@ -46,8 +46,8 @@ jobs:
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.pawlyclinic-api-container.outputs.task-definition }}
-        service: test-td-test
-        cluster: test-td-test
+        service: test-td
+        cluster: test-td
         
     - name: Logout of Amazon ECR
       if: always()
