@@ -11,12 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check out code
+    - name: Checkout
       uses: actions/checkout@v2
-	  
-	#- name: Get branch name
-  #   id: vars
-  #   run: echo ::set-output name=stage::${GITHUB_REF#refs/*/}
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
