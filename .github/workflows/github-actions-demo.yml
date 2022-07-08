@@ -33,23 +33,22 @@ jobs:
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-		
-	- name: Render Amazon ECS task definition
-	  id: ecs-cd-starter-container
+
+    - name: Render Amazon ECS task definition
+      id: ecs-cd-starter-container
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
         task-definition: task-definition/test.json #1
         container-name: ecs-cd-starter-test #2
         image: ${{ steps.login-ecr.outputs.registry }}/rohit_test:${{ github.sha }}
 
-
-	- name: Deploy to Amazon ECS service
+    - name: Deploy to Amazon ECS service
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.pawlyclinic-api-container.outputs.task-definition }}
         service: ecs-cd-starter-test
         cluster: ecs-cd-starter-test
-		
-	- name: Logout of Amazon ECR
+        
+    - name: Logout of Amazon ECR
       if: always()
       run: docker logout ${{ steps.login-ecr.outputs.registry }}
