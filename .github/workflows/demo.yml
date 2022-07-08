@@ -14,9 +14,9 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v2
 	  
-	- name: Get branch name
-      id: vars
-      run: echo ::set-output name=stage::${GITHUB_REF#refs/*/}
+	#- name: Get branch name
+  #   id: vars
+  #   run: echo ::set-output name=stage::${GITHUB_REF#refs/*/}
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
