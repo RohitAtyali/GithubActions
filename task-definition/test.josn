@@ -1,6 +1,6 @@
 {
   "ipcMode": null,
-  "executionRoleArn": null,
+  "executionRoleArn": "arn:aws:iam::330231253416:role/taskdf-role",
   "containerDefinitions": [
     {
       "dnsSearchDomains": null,
@@ -26,10 +26,10 @@
       "secrets": null,
       "dockerSecurityOptions": null,
       "memory": null,
-      "memoryReservation": 256,
+      "memoryReservation": 128,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "330231253416.dkr.ecr.ap-south-1.amazonaws.com/rohit_test:14714c86a9c5ba708353c31975bfba53d4d5f12b",
+      "image": "330231253416.dkr.ecr.ap-south-1.amazonaws.com/rohit_test:e4b39ad2f6983664b1680a467d673cc42fd413dd",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -50,14 +50,13 @@
     }
   ],
   "placementConstraints": [],
-  "memory": "512",
+  "memory": "256",
   "taskRoleArn": "arn:aws:iam::330231253416:role/taskdf-role",
   "compatibilities": [
-    "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:ap-south-1:330231253416:task-definition/test-td:5",
-  "family": "test-td",
+  "taskDefinitionArn": "arn:aws:ecs:ap-south-1:330231253416:task-definition/my-td:1",
+  "family": "my-td",
   "requiresAttributes": [
     {
       "targetId": null,
@@ -76,16 +75,34 @@
       "targetType": null,
       "value": null,
       "name": "com.amazonaws.ecs.capability.task-iam-role"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "ecs.capability.execution-role-ecr-pull"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "ecs.capability.task-eni"
     }
   ],
   "pidMode": null,
   "requiresCompatibilities": [
     "EC2"
   ],
-  "networkMode": null,
+  "networkMode": "awsvpc",
   "runtimePlatform": null,
-  "cpu": "512",
-  "revision": 5,
+  "cpu": "256",
+  "revision": 1,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
