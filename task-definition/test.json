@@ -50,13 +50,13 @@
     }
   ],
   "placementConstraints": [],
-  "memory": "256",
+  "memory": "512",
   "taskRoleArn": "arn:aws:iam::330231253416:role/taskdf-role",
   "compatibilities": [
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:eu-west-3:330231253416:task-definition/ecs-test:1",
+  "taskDefinitionArn": "arn:aws:ecs:eu-west-3:330231253416:task-definition/ecs-test:2",
   "family": "ecs-test",
   "requiresAttributes": [
     {
@@ -90,8 +90,8 @@
   ],
   "networkMode": null,
   "runtimePlatform": null,
-  "cpu": "256",
-  "revision": 1,
+  "cpu": "512",
+  "revision": 2,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
